@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Records</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f8fb;
+        }
+
+        header {
+            background-color: #0b6e8e;
+            color: white;
+            padding: 20px 50px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 95%;
+            margin: 40px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #075b75;
+            margin-bottom: 30px;
+        }
+
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+
+            box-shadow: 0 4px 15px #ccc;
+
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #0b6e8e;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f1f8fb;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 18px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .button {
+            display: inline-block;
+
+            background-color: #0b6e8e;
+            color: white;
+
+            padding: 12px 25px;
+
+            border-radius: 6px;
+
+            text-decoration: none;
+
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #075b75;
+        }
+
+        footer {
+            background-color: #073b4c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>🏥 City Care Hospital</h1>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/patient-registration">Register Patient</a>
+        </nav>
+
+    </header>
+
+
+    <div class="container">
+
+        <h2>👨‍⚕️ Patient Records</h2>
+
+
+        <div class="table-container">
+
+            {% if patients %}
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Patient Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Health Problem</th>
+                        <th>Doctor</th>
+                        <th>Appointment Date</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for patient in patients %}
+
+                    <tr>
+
+                        <td>{{ patient["id"] }}</td>
+
+                        <td>{{ patient["name"] }}</td>
+
+                        <td>{{ patient["age"] }}</td>
+
+                        <td>{{ patient["gender"] }}</td>
+
+                        <td>{{ patient["phone"] }}</td>
+
+                        <td>{{ patient["email"] }}</td>
+
+                        <td>{{ patient["problem"] }}</td>
+
+                        <td>{{ patient["doctor"] }}</td>
+
+                        <td>{{ patient["appointment_date"] }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <div class="no-data">
+                No patient records found.
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a href="/patient-registration" class="button">
+                + Register New Patient
+            </a>
+
+            <a href="/" class="button">
+                Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            © 2026 City Care Hospital | Hospital Management System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

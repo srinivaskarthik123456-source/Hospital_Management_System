@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Appointment Records</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f8fb;
+        }
+
+        header {
+            background: #0b6e8e;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .container {
+            width: 95%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #ccc;
+            overflow-x: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #075b75;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #0b6e8e;
+            color: white;
+            padding: 14px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:hover {
+            background: #f1f8fa;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 20px;
+            background: #0b6e8e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>🏥 City Care Hospital</h1>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/doctors">Doctors</a>
+
+        <a href="/appointments">Appointments</a>
+
+        <a href="/appointment-records">Records</a>
+
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+    <h2>📋 Appointment Records</h2>
+
+
+    {% if appointments %}
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Patient Name</th>
+
+            <th>Phone</th>
+
+            <th>Doctor</th>
+
+            <th>Date</th>
+
+            <th>Time</th>
+
+            <th>Reason</th>
+
+        </tr>
+
+
+        {% for appointment in appointments %}
+
+        <tr>
+
+            <td>
+                {{ appointment["id"] }}
+            </td>
+
+            <td>
+                {{ appointment["patient_name"] }}
+            </td>
+
+            <td>
+                {{ appointment["phone"] }}
+            </td>
+
+            <td>
+                {{ appointment["doctor"] }}
+            </td>
+
+            <td>
+                {{ appointment["appointment_date"] }}
+            </td>
+
+            <td>
+                {{ appointment["appointment_time"] }}
+            </td>
+
+            <td>
+                {{ appointment["reason"] }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <div class="empty">
+
+        <h3>No Appointments Found</h3>
+
+        <p>
+            No appointments have been booked yet.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+
+    <a href="/" class="back">
+        ← Back to Home
+    </a>
+
+</div>
+
+
+</body>
+
+</html>

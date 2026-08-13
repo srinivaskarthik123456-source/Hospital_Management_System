@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Registration</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f8fb;
+        }
+
+        header {
+            background-color: #0b6e8e;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 700px;
+            max-width: 90%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #ccc;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #075b75;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0b6e8e;
+        }
+
+        textarea {
+            height: 90px;
+            resize: vertical;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .button {
+            background-color: #0b6e8e;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #075b75;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #0b6e8e;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #073b4c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🏥 City Care Hospital</h1>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/patient-registration">Patient Registration</a>
+        </nav>
+
+    </header>
+
+
+    <div class="container">
+
+        <h2>🧑‍⚕️ Patient Registration</h2>
+
+
+        <!-- FORM START -->
+        <form method="POST" action="/patient-registration">
+
+
+            <!-- Patient Name -->
+            <div class="form-group">
+
+                <label for="name">
+                    Patient Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter patient name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Age and Gender -->
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label for="age">
+                        Age
+                    </label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        placeholder="Enter age"
+                        min="1"
+                        max="120"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="gender">
+                        Gender
+                    </label>
+
+                    <select
+                        id="gender"
+                        name="gender"
+                        required
+                    >
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Phone -->
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter 10 digit phone number"
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter email address"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Address -->
+            <div class="form-group">
+
+                <label for="address">
+                    Address
+                </label>
+
+                <textarea
+                    id="address"
+                    name="address"
+                    placeholder="Enter patient address"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- Health Problem -->
+            <div class="form-group">
+
+                <label for="problem">
+                    Health Problem
+                </label>
+
+                <textarea
+                    id="problem"
+                    name="problem"
+                    placeholder="Describe the health problem"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- Doctor -->
+            <div class="form-group">
+
+                <label for="doctor">
+                    Select Doctor
+                </label>
+
+                <select
+                    id="doctor"
+                    name="doctor"
+                    required
+                >
+
+                    <option value="">
+                        Select Doctor
+                    </option>
+
+                    <option value="Dr. Ravi Kumar">
+                        Dr. Ravi Kumar - General Physician
+                    </option>
+
+                    <option value="Dr. Priya Sharma">
+                        Dr. Priya Sharma - Cardiologist
+                    </option>
+
+                    <option value="Dr. Arjun Reddy">
+                        Dr. Arjun Reddy - Neurologist
+                    </option>
+
+                    <option value="Dr. Sneha Rao">
+                        Dr. Sneha Rao - Dermatologist
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Appointment Date -->
+            <div class="form-group">
+
+                <label for="date">
+                    Appointment Date
+                </label>
+
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Submit Button -->
+            <div class="button-container">
+
+                <button
+                    type="submit"
+                    class="button"
+                >
+                    Register Patient
+                </button>
+
+            </div>
+
+
+        </form>
+        <!-- FORM END -->
+
+
+        <a href="/" class="back">
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            © 2026 City Care Hospital |
+            Hospital Management System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
