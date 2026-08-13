@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Patient</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f8fb;
+        }
+
+        header {
+            background: #0b6e8e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .form-box {
+            width: 700px;
+            max-width: 90%;
+            background: white;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #ccc;
+        }
+
+        h2 {
+            color: #0b6e8e;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 25px;
+            background: #0b6e8e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #075b75;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #0b6e8e;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🏥 City Care Hospital</h1>
+
+    <p>Edit Patient Details</p>
+
+</header>
+
+
+<div class="form-box">
+
+    <h2>✏️ Update Patient</h2>
+
+    <form
+        method="POST"
+        action="/admin/update-patient/{{ patient['id'] }}"
+    >
+
+        <label>Patient Name</label>
+
+        <input
+            type="text"
+            name="name"
+            value="{{ patient['name'] }}"
+            required
+        >
+
+
+        <label>Age</label>
+
+        <input
+            type="number"
+            name="age"
+            value="{{ patient['age'] }}"
+            required
+        >
+
+
+        <label>Gender</label>
+
+        <select name="gender" required>
+
+            <option value="Male"
+                {% if patient['gender'] == 'Male' %}selected{% endif %}>
+                Male
+            </option>
+
+            <option value="Female"
+                {% if patient['gender'] == 'Female' %}selected{% endif %}>
+                Female
+            </option>
+
+            <option value="Other"
+                {% if patient['gender'] == 'Other' %}selected{% endif %}>
+                Other
+            </option>
+
+        </select>
+
+
+        <label>Phone</label>
+
+        <input
+            type="text"
+            name="phone"
+            value="{{ patient['phone'] }}"
+            required
+        >
+
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            name="email"
+            value="{{ patient['email'] }}"
+            required
+        >
+
+
+        <label>Address</label>
+
+        <textarea
+            name="address"
+            required
+        >{{ patient['address'] }}</textarea>
+
+
+        <label>Problem</label>
+
+        <textarea
+            name="problem"
+            required
+        >{{ patient['problem'] }}</textarea>
+
+
+        <label>Doctor</label>
+
+        <input
+            type="text"
+            name="doctor"
+            value="{{ patient['doctor'] }}"
+            required
+        >
+
+
+        <label>Appointment Date</label>
+
+        <input
+            type="date"
+            name="appointment_date"
+            value="{{ patient['appointment_date'] }}"
+            required
+        >
+
+
+        <button type="submit">
+            💾 Update Patient
+        </button>
+
+    </form>
+
+
+    <a
+        href="/admin"
+        class="back"
+    >
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+
+</html>

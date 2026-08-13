@@ -1,1 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>City Care Hospital</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8fb;
+            color: #222;
+        }
+
+        header {
+            background: #0b6e8e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        nav {
+            background: #075b75;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h2 {
+            color: #0b6e8e;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 22px;
+            background: #0b6e8e;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #075b75;
+        }
+
+        .admin {
+            background: #444;
+        }
+
+        .admin:hover {
+            background: #222;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 30px 20px 60px;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #ccc;
+        }
+
+        .card h3 {
+            color: #0b6e8e;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #0b6e8e;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>🏥 City Care Hospital</h1>
+
+        <p>Hospital Management System</p>
+
+    </header>
+
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/patient-registration">
+            Patient Registration
+        </a>
+
+        <a href="/doctors">
+            Doctors
+        </a>
+
+        <a href="/appointments">
+            Appointments
+        </a>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <h2>Welcome to City Care Hospital</h2>
+
+        <p>
+            Quality Healthcare • Trusted Doctors • Easy Appointments
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="/patient-registration"
+                class="btn">
+                👤 Patient Registration
+            </a>
+
+
+            <a
+                href="/appointments"
+                class="btn">
+                📅 Book Appointment
+            </a>
+
+
+            <a
+                href="/doctors"
+                class="btn">
+                👨‍⚕️ View Doctors
+            </a>
+
+
+            <a
+                href="/patients"
+                class="btn">
+                📋 Patient Records
+            </a>
+
+
+            <a
+                href="/appointment-records"
+                class="btn">
+                📅 Appointment Records
+            </a>
+
+
+            <a
+                href="http://127.0.0.1:5001/admin-login"
+                class="btn admin">
+                🔐 Admin Login
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="cards">
+
+        <div class="card">
+
+            <h3>👨‍⚕️ Expert Doctors</h3>
+
+            <p>
+                Experienced doctors available
+                for different medical needs.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>📅 Easy Appointment</h3>
+
+            <p>
+                Book your hospital appointment
+                quickly and easily.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>📋 Patient Records</h3>
+
+            <p>
+                Patient and appointment records
+                are stored securely.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            © 2026 City Care Hospital
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Appointment</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f4f8fb;
+        }
+
+        header {
+            background-color: #0b6e8e;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 700px;
+            max-width: 90%;
+            margin: 50px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #075b75;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 90px;
+            resize: vertical;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+        button {
+            display: block;
+            margin: 25px auto 0;
+            background-color: #0b6e8e;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #075b75;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #0b6e8e;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>🏥 City Care Hospital</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/doctors">Doctors</a>
+        <a href="/appointments">Appointments</a>
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+    <h2>📅 Book Appointment</h2>
+
+    <form method="POST" action="/appointments">
+
+        <div class="form-group">
+
+            <label>Patient Name</label>
+
+            <input
+                type="text"
+                name="patient_name"
+                placeholder="Enter patient name"
+                required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Phone Number</label>
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="Enter 10 digit phone number"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Select Doctor</label>
+
+            <select name="doctor" required>
+
+                <option value="">Select Doctor</option>
+
+                <option value="Dr. Ravi Kumar">
+                    Dr. Ravi Kumar - General Physician
+                </option>
+
+                <option value="Dr. Priya Sharma">
+                    Dr. Priya Sharma - Cardiologist
+                </option>
+
+                <option value="Dr. Arjun Reddy">
+                    Dr. Arjun Reddy - Neurologist
+                </option>
+
+                <option value="Dr. Sneha Rao">
+                    Dr. Sneha Rao - Dermatologist
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label>Appointment Date</label>
+
+                <input
+                    type="date"
+                    name="appointment_date"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Appointment Time</label>
+
+                <input
+                    type="time"
+                    name="appointment_time"
+                    required>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Reason for Appointment</label>
+
+            <textarea
+                name="reason"
+                placeholder="Enter reason for appointment"
+                required></textarea>
+
+        </div>
+
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
+
+
+    <a href="/" class="back">
+        ← Back to Home
+    </a>
+
+</div>
+
+</body>
+
+</html>

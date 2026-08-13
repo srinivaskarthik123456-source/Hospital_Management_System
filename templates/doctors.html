@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Doctors - City Care Hospital</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f8fb;
+        }
+
+        header {
+            background-color: #0b6e8e;
+            color: white;
+            padding: 20px 50px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #075b75;
+            margin-bottom: 35px;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .doctor-card {
+            background-color: white;
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 15px #ccc;
+        }
+
+        .doctor-card h3 {
+            color: #075b75;
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .doctor-card p {
+            margin-bottom: 10px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .doctor-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #0b6e8e;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .button {
+            display: inline-block;
+
+            background-color: #0b6e8e;
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 28px;
+
+            border-radius: 6px;
+
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #075b75;
+        }
+
+        footer {
+            background-color: #073b4c;
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            margin-top: 50px;
+        }
+
+        @media (max-width: 700px) {
+
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <h1>🏥 City Care Hospital</h1>
+
+        <nav>
+
+            <a href="/">Home</a>
+
+            <a href="/patient-registration">
+                Patient Registration
+            </a>
+
+            <a href="/patients">
+                Patient Records
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <div class="container">
+
+        <h2>👨‍⚕️ Our Doctors</h2>
+
+
+        <div class="doctors-grid">
+
+
+            {% for doctor in doctors %}
+
+            <div class="doctor-card">
+
+                <div class="doctor-icon">
+                    👨‍⚕️
+                </div>
+
+                <h3>
+                    {{ doctor["name"] }}
+                </h3>
+
+                <p>
+                    <span class="label">
+                        Specialization:
+                    </span>
+
+                    {{ doctor["specialization"] }}
+                </p>
+
+                <p>
+                    <span class="label">
+                        Experience:
+                    </span>
+
+                    {{ doctor["experience"] }}
+                </p>
+
+                <p>
+                    <span class="label">
+                        Available:
+                    </span>
+
+                    {{ doctor["available"] }}
+                </p>
+
+                <p>
+                    <span class="label">
+                        Contact:
+                    </span>
+
+                    {{ doctor["contact"] }}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+
+
+        <div class="button-container">
+
+            <a href="/patient-registration" class="button">
+                Book Appointment
+            </a>
+
+            <a href="/" class="button">
+                Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <footer>
+
+        <p>
+            © 2026 City Care Hospital |
+            Hospital Management System
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
